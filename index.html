@@ -10,6 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
+        /* Sikrer at intet vokser ud over skærmens bredde */
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Josefin Sans', sans-serif; 
             background-color: #16322D; /* Mørkegrøn baggrund */
@@ -19,24 +24,25 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding: 20px; 
-            box-sizing: border-box;
+            padding: 15px; /* Lidt luft rundt om */
         }
+        
         .container {
             background-color: transparent;
-            padding: 40px;
+            padding: 30px;
             text-align: center;
             max-width: 650px; 
             width: 100%;
-            box-sizing: border-box;
         }
+        
         .logo {
-            display: block; /* Gør billedet til en blok */
-            margin: 0 auto 25px auto; /* Tvinger lige meget luft på højre/venstre side = 100% centreret */
+            display: block; 
+            margin: 0 auto 25px auto; 
             max-width: 280px;
             width: 100%; 
             height: auto;
         }
+        
         h1 {
             font-size: 38px;
             margin-bottom: 20px;
@@ -44,6 +50,7 @@
             color: #E6BD71;
             font-weight: 700;
         }
+        
         p {
             margin-bottom: 35px;
             color: #E6BD71;
@@ -73,6 +80,7 @@
             transition: all 0.3s ease;
             color: #E6BD71;
             background-color: #16322D;
+            text-align: center;
         }
         .status-toggle input[type="radio"]:checked + label {
             background-color: #E6BD71;
@@ -96,7 +104,6 @@
             color: #E6BD71;
             border: 2px solid #E6BD71;
             border-radius: 8px;
-            box-sizing: border-box;
             outline: none;
             cursor: text;
             transition: box-shadow 0.3s ease;
@@ -152,7 +159,7 @@
             font-style: italic;
             text-align: center;
         }
-        /* Custom scrollbar til dropdown */
+        /* Custom scrollbar */
         .dropdown-list::-webkit-scrollbar {
             width: 8px;
         }
@@ -167,26 +174,39 @@
             background: #E6BD71;
         }
 
-        /* --- Responsivt design til mobilskærme --- */
+        /* --- 100% Responsivt design til mobilskærme --- */
         @media (max-width: 600px) {
+            body {
+                padding: 10px; /* Endnu mindre luft udenom for at give plads til indhold */
+            }
             .container {
                 padding: 15px; 
             }
             .logo {
-                max-width: 200px; 
-                margin: 0 auto 20px auto; /* Sørger for at det også er centreret på mobil */
+                max-width: 220px; /* Skalerer logoet ned på små skærme */
             }
             h1 {
-                font-size: 28px; 
+                font-size: 26px; 
             }
             p {
                 font-size: 16px; 
                 margin-bottom: 25px;
             }
-            .status-toggle label {
-                padding: 12px 8px; 
-                font-size: 15px;
+            
+            /* Løsningen på de sammenpressede knapper: De stables på mobilen! */
+            .status-toggle {
+                flex-direction: column; /* Lægger knapperne oven på hinanden */
             }
+            /* Giver en streg imellem de stablede knapper for at adskille dem */
+            .status-toggle input[type="radio"]:first-of-type + label {
+                border-bottom: 2px solid #E6BD71;
+            }
+            .status-toggle label {
+                width: 100%;
+                padding: 16px; 
+                font-size: 16px;
+            }
+            
             .search-input {
                 font-size: 16px;
                 padding: 14px;

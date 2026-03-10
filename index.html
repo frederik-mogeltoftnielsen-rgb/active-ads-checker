@@ -19,7 +19,7 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding: 20px; /* Sikrer at der er lidt luft udenom boksen på små skærme */
+            padding: 20px; 
             box-sizing: border-box;
         }
         .container {
@@ -31,9 +31,10 @@
             box-sizing: border-box;
         }
         .logo {
+            display: block; /* Gør billedet til en blok */
+            margin: 0 auto 25px auto; /* Tvinger lige meget luft på højre/venstre side = 100% centreret */
             max-width: 280px;
-            width: 100%; /* Sørger for at logoet ikke bryder rammerne */
-            margin-bottom: 25px;
+            width: 100%; 
             height: auto;
         }
         h1 {
@@ -117,7 +118,7 @@
             border: 2px solid #E6BD71;
             border-top: none;
             border-radius: 0 0 8px 8px;
-            max-height: 300px; /* Lidt mindre max-højde så den ikke ryger ud af mobilskærmen */
+            max-height: 300px; 
             overflow-y: auto;
             z-index: 10;
             box-shadow: 0 10px 25px rgba(0,0,0,0.4);
@@ -169,20 +170,21 @@
         /* --- Responsivt design til mobilskærme --- */
         @media (max-width: 600px) {
             .container {
-                padding: 15px; /* Mindre plads til kanten */
+                padding: 15px; 
             }
             .logo {
-                max-width: 200px; /* Lidt mindre logo på mobilen */
+                max-width: 200px; 
+                margin: 0 auto 20px auto; /* Sørger for at det også er centreret på mobil */
             }
             h1 {
-                font-size: 28px; /* Mindre overskrift */
+                font-size: 28px; 
             }
             p {
-                font-size: 16px; /* Mindre brødtekst */
+                font-size: 16px; 
                 margin-bottom: 25px;
             }
             .status-toggle label {
-                padding: 12px 8px; /* Tættere knapper */
+                padding: 12px 8px; 
                 font-size: 15px;
             }
             .search-input {

@@ -280,33 +280,28 @@
             const dropdownList = document.getElementById('dropdownList');
             const dataSelect = document.getElementById('venueSelectData');
 
-            // Funktion der bygger listen og filtrerer på søgning
             function renderDropdown(filterText = '') {
-                dropdownList.innerHTML = ''; // Tøm listen
+                dropdownList.innerHTML = '';
                 const optgroups = dataSelect.getElementsByTagName('optgroup');
                 let hasResults = false;
                 const filterLower = filterText.toLowerCase();
 
-                // Løb igennem regionerne
                 for (let group of optgroups) {
                     const options = group.getElementsByTagName('option');
                     let groupHasVisibleOptions = false;
                     let groupHtml = document.createElement('div');
                     
-                    // Overskrift for region (f.eks. København)
                     let groupTitle = document.createElement('div');
                     groupTitle.className = 'dropdown-group';
                     groupTitle.textContent = group.label;
                     groupHtml.appendChild(groupTitle);
 
-                    // Løb igennem barerne
                     for (let option of options) {
                         if (option.text.toLowerCase().includes(filterLower)) {
                             let item = document.createElement('div');
                             item.className = 'dropdown-item';
                             item.textContent = option.text;
                             
-                            // Når man klikker på en bar
                             item.onclick = function() {
                                 openAdsLibrary(option.value);
                             };
@@ -317,13 +312,11 @@
                         }
                     }
 
-                    // Vis kun regionen, hvis der er barer der matcher søgningen
                     if (groupHasVisibleOptions) {
                         dropdownList.appendChild(groupHtml);
                     }
                 }
 
-                // Hvis ingen barer matcher søgningen
                 if (!hasResults) {
                     let noRes = document.createElement('div');
                     noRes.className = 'no-results';
@@ -332,32 +325,26 @@
                 }
             }
 
-            // Vis dropdown når feltet klikkes på
             searchInput.addEventListener('focus', () => {
                 dropdownList.classList.add('active');
                 renderDropdown(searchInput.value);
             });
 
-            // Opdater listen mens man taster
             searchInput.addEventListener('input', (e) => {
                 renderDropdown(e.target.value);
             });
 
-            // Luk dropdown hvis man klikker et andet sted på skærmen
             document.addEventListener('click', (e) => {
                 if (!searchInput.contains(e.target) && !dropdownList.contains(e.target)) {
                     dropdownList.classList.remove('active');
                 }
             });
 
-            // Hovedfunktionen der åbner Meta
             function openAdsLibrary(fbPageId) {
-                // Skjul dropdown og ryd søgefelt
                 dropdownList.classList.remove('active');
                 searchInput.value = ''; 
                 renderDropdown(''); 
 
-                // Tjek om 'Aktive' eller 'Inaktive' er valgt
                 const statusRadios = document.getElementsByName("adStatus");
                 let selectedStatus = "active"; 
                 for (const radio of statusRadios) {
@@ -368,7 +355,8 @@
                 }
 
                 if (fbPageId) {
-                    const metaUrl = `https://www.facebook.com/ads/library/?active_status=${selectedStatus}&ad_type=all&country=DK&view_all_page_id=${fbPageId}`;
+                    // LINK OPDATERET MED &search_type=page FOR AT LØSE META FEJLEN
+                    const metaUrl = `https://www.facebook.com/ads/library/?active_status=${selectedStatus}&ad_type=all&country=DK&search_type=page&view_all_page_id=${fbPageId}`;
                     window.open(metaUrl, '_blank');
                 }
             }

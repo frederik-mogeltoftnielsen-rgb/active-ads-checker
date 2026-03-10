@@ -7,8 +7,8 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #16322D; /* Opdateret til jeres primære mørkegrønne farve */
-            color: #333;
+            background-color: #16322D; /* Mørkegrøn baggrund */
+            color: #E6BD71; /* Gylden tekstfarve overalt */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,14 +16,11 @@
             margin: 0;
         }
         .container {
-            background-color: #fff; /* Boksen forbliver hvid for læsbarhedens skyld */
+            background-color: transparent; /* Den hvide boks er fjernet */
             padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3); /* Gjort skyggen lidt mørkere for at passe til den mørke baggrund */
             text-align: center;
             max-width: 500px;
             width: 100%;
-            border-top: 6px solid #E6BD71; /* Sekundær farve (Guld) */
         }
         .logo {
             max-width: 180px;
@@ -31,29 +28,32 @@
             height: auto;
         }
         h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
+            font-size: 26px;
+            margin-bottom: 15px;
             margin-top: 0;
-            color: #16322D; /* Primær farve (Mørkegrøn) */
+            color: #E6BD71; /* Gylden overskrift */
         }
         p {
-            margin-bottom: 25px;
-            color: #555;
+            margin-bottom: 30px;
+            color: #E6BD71; /* Gylden brødtekst */
             line-height: 1.5;
+            font-size: 16px;
         }
         select {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             font-size: 16px;
-            border: 2px solid #ccc;
+            background-color: #16322D; /* Mørkegrøn baggrund i dropdown */
+            color: #E6BD71; /* Gylden tekst i dropdown */
+            border: 2px solid #E6BD71; /* Gylden kant på dropdown */
             border-radius: 5px;
             margin-bottom: 10px;
             cursor: pointer;
             outline: none;
-            transition: border-color 0.3s ease;
+            transition: box-shadow 0.3s ease;
         }
         select:focus, select:hover {
-            border-color: #16322D;
+            box-shadow: 0 0 10px rgba(230, 189, 113, 0.4); /* Subtil gylden glød ved mus-over */
         }
     </style>
 </head>

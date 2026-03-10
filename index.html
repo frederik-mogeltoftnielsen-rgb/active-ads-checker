@@ -175,13 +175,13 @@
             const fbPageId = select.value;
 
             if (fbPageId) {
-                // Bygger URL'en til Meta Ads Library for det specifikke venue
-                const metaUrl = `https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=DK&view_all_page_id=${fbPageId}`;
+                // Bygger URL'en til Meta Ads Library. Ændret 'active_status=all' til 'active_status=active'
+                const metaUrl = `https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=DK&view_all_page_id=${fbPageId}`;
                 
                 // Åbner URL'en i en ny fane med det samme
                 window.open(metaUrl, '_blank');
                 
-                // Nulstiller dropdown-menuen efter brug, så man nemt kan vælge en ny bar bagefter
+                // Nulstiller dropdown-menuen
                 select.value = "";
             }
         }

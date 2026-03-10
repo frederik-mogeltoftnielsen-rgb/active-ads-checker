@@ -17,8 +17,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            padding: 20px; /* Sikrer at der er lidt luft udenom boksen på små skærme */
+            box-sizing: border-box;
         }
         .container {
             background-color: transparent;
@@ -26,9 +28,11 @@
             text-align: center;
             max-width: 650px; 
             width: 100%;
+            box-sizing: border-box;
         }
         .logo {
             max-width: 280px;
+            width: 100%; /* Sørger for at logoet ikke bryder rammerne */
             margin-bottom: 25px;
             height: auto;
         }
@@ -113,7 +117,7 @@
             border: 2px solid #E6BD71;
             border-top: none;
             border-radius: 0 0 8px 8px;
-            max-height: 350px;
+            max-height: 300px; /* Lidt mindre max-højde så den ikke ryger ud af mobilskærmen */
             overflow-y: auto;
             z-index: 10;
             box-shadow: 0 10px 25px rgba(0,0,0,0.4);
@@ -160,6 +164,35 @@
         }
         .dropdown-list::-webkit-scrollbar-thumb:hover {
             background: #E6BD71;
+        }
+
+        /* --- Responsivt design til mobilskærme --- */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px; /* Mindre plads til kanten */
+            }
+            .logo {
+                max-width: 200px; /* Lidt mindre logo på mobilen */
+            }
+            h1 {
+                font-size: 28px; /* Mindre overskrift */
+            }
+            p {
+                font-size: 16px; /* Mindre brødtekst */
+                margin-bottom: 25px;
+            }
+            .status-toggle label {
+                padding: 12px 8px; /* Tættere knapper */
+                font-size: 15px;
+            }
+            .search-input {
+                font-size: 16px;
+                padding: 14px;
+            }
+            .dropdown-item {
+                font-size: 16px;
+                padding: 12px 14px 12px 20px;
+            }
         }
     </style>
 </head>

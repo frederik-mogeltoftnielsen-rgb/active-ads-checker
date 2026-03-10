@@ -11,7 +11,6 @@
     
     <style>
         body {
-            /* Opdateret til at bruge Josefin Sans overalt */
             font-family: 'Josefin Sans', sans-serif; 
             background-color: #16322D; /* Mørkegrøn baggrund */
             color: #E6BD71; /* Gylden tekstfarve */
@@ -29,12 +28,12 @@
             width: 100%;
         }
         .logo {
-            max-width: 280px; /* Logoet er gjort en del større (var 220px før) */
+            max-width: 280px;
             margin-bottom: 25px;
             height: auto;
         }
         h1 {
-            font-size: 38px; /* Gjort en anelse større for at matche den nye font */
+            font-size: 38px;
             margin-bottom: 20px;
             margin-top: 0;
             color: #E6BD71;
@@ -44,11 +43,11 @@
             margin-bottom: 35px;
             color: #E6BD71;
             line-height: 1.6;
-            font-size: 20px; /* Lidt større tekst til læsbarhed med Josefin */
+            font-size: 20px;
             font-weight: 300;
         }
         
-        /* Design til Aktive/Inaktive knapperne */
+        /* Design til Aktive/Tidligere knapperne */
         .status-toggle {
             display: flex;
             justify-content: center;
@@ -86,7 +85,7 @@
             width: 100%;
             padding: 16px;
             font-size: 18px;
-            font-family: 'Josefin Sans', sans-serif; /* Sikrer at input-feltet også har fonten */
+            font-family: 'Josefin Sans', sans-serif;
             font-weight: 600;
             background-color: #16322D;
             color: #E6BD71;
@@ -170,14 +169,14 @@
         <img src="logo.png" alt="Rekom Logo" class="logo">
         
         <h1>Tjek Meta Annoncer</h1>
-        <p>Vælg først om du vil se aktive eller inaktive annoncer. Søg derefter efter dit venue for at blive sendt direkte til Ads Library.</p>
+        <p>Vælg først om du vil se aktive eller tidligere annoncer. Søg derefter efter dit venue, for at blive sendt direkte til Ads Library.</p>
 
         <div class="status-toggle">
             <input type="radio" id="statusActive" name="adStatus" value="active" checked>
             <label for="statusActive">Aktive annoncer</label>
             
             <input type="radio" id="statusInactive" name="adStatus" value="inactive">
-            <label for="statusInactive">Inaktive annoncer</label>
+            <label for="statusInactive">Tidligere annoncer</label>
         </div>
 
         <div class="custom-select-container">
